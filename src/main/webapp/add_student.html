@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Student</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #ddd;
+        margin-bottom: 5px;
+    }
+
+    h2 {
+        color: #ff9800;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #ff9800;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .form-box {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        width: 400px;
+        backdrop-filter: blur(8px);
+    }
+
+    .form-box table {
+        width: 100%;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    input[type="text"], input[type="tel"], select {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        font-size: 14px;
+    }
+
+    input[type="radio"] {
+        margin: 0 8px;
+    }
+
+    input[type="submit"], input[type="reset"] {
+        width: 48%;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    input[type="submit"] {
+        background: #28a745;
+        color: white;
+    }
+
+    input[type="submit"]:hover {
+        background: #218838;
+        transform: scale(1.05);
+    }
+
+    input[type="reset"] {
+        background: #dc3545;
+        color: white;
+    }
+
+    input[type="reset"]:hover {
+        background: #c82333;
+        transform: scale(1.05);
+    }
+
+    .form-box i {
+        margin-right: 8px;
+        color: #ff9800;
+    }
+    .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    color: white;
+}
+
+.btn-home {
+    background: #007bff;
+}
+
+.btn-home:hover {
+    background: #0069d9;
+    transform: scale(1.05);
+}
+
+.btn-view {
+    background: #17a2b8;
+}
+
+.btn-view:hover {
+    background: #138496;
+    transform: scale(1.05);
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Management System</h1>
+        <h2><i class="fas fa-user-plus"></i> Add Student</h2>
+
+        <div class="form-box">
+            <form action="add_controller.jsp" method="post">
+                <table>
+                    <tr>
+                        <td><label><i class="fas fa-id-card"></i> Roll Number:</label></td>
+                        <td><input type="text" name="rollnumber" placeholder="e.g. 12345" required/></td>
+                    </tr>
+                    <tr>
+                        <td><label><i class="fas fa-user"></i> Name:</label></td>
+                        <td><input type="text" name="student_name" placeholder="e.g. Lahari" required/></td>
+                    </tr>
+                    <tr>
+                        <td><label><i class="fas fa-book"></i> Course:</label></td>
+                        <td>
+                            <select name="course" required>
+                                <option value="">-- Select Course --</option>
+                                <option value="java">Java</option>
+                                <option value="c">C</option>
+                                <option value="html">HTML</option>
+                                <option value="springboot">Spring Boot</option>
+                                <option value="css">CSS</option>
+                                <option value="js">JavaScript</option>
+                                <option value="jdbc">JDBC</option>
+                                <option value="agile">Agile</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label><i class="fas fa-venus-mars"></i> Gender:</label></td>
+                        <td>
+                            <input type="radio" value="male" name="gender" required/> Male
+                            <input type="radio" value="female" name="gender"/> Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label><i class="fas fa-phone"></i> Contact:</label></td>
+                        <td><input type="tel" name="contact" placeholder="e.g. 9876543210" required/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center; padding-top:15px;">
+                            <input type="submit" value="Add Student"/>
+                            <input type="reset" value="Clear"/>
+                        </td>
+                    </tr>
+                    <tr>
+    <td colspan="2" style="text-align:center; padding-top:15px;">
+        <a href="dashboard.html" class="btn btn-home">Back to Dashboard</a>
+        <a href="view_all_students_controller.jsp" class="btn btn-view">View Students</a>
+    </td>
+</tr>
+                </table>
+                
+            </form>
+            
+            
+        </div>
+    </div>
+</body>
+</html>

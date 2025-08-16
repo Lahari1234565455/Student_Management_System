@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Management System</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Global Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd33d, #ffe066); /* Yellow gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    background: white;
+    padding: 50px 60px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+    font-size: 1.1rem;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  input[type="text"]:focus {
+    border-color: #ffb700;
+    box-shadow: 0 5px 15px rgba(255, 179, 0, 0.3);
+  }
+
+  .btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    background: #ffb700;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 179, 0, 0.3);
+    margin: 5px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn:hover {
+    background: #ffa500;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 165, 0, 0.4);
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Student Management System</h1>
+    <form action="search_controller.jsp" method="post">
+      <label>Enter Student ID:</label>
+      <input type="text" name="id" placeholder="e.g. 101" required />
+      <div class="button-group">
+        <input type="submit" class="btn" value="Search" />
+        <a href="dashboard.html" class="btn">View Dashboard</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

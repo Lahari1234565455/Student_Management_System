@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>College Management System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+
+  body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+  }
+
+  .dashboard {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 220px;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #ff9800;
+    text-align: center;
+    width: 100%;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    width: 100%;
+  }
+
+  .sidebar ul li {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .sidebar ul li:hover,
+  .sidebar ul li.active {
+    background: rgba(255,152,0,0.8);
+    color: #fff;
+    transform: translateX(5px);
+  }
+
+  /* Main content */
+  .main-content {
+    flex: 1;
+    padding: 30px;
+  }
+
+  .main-heading h1 {
+    font-size: 32px;
+    color: #ff9800;
+    margin-bottom: 30px;
+  }
+
+  /* Cards container */
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  /* Cards as links */
+  .card {
+    flex: 1 1 calc(18% - 20px);
+    min-width: 160px;
+    max-width: 220px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none; /* Make link appear like a card */
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: linear-gradient(60deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transform: rotate(25deg);
+    transition: 0.5s;
+  }
+
+  .card:hover::before {
+    transform: rotate(45deg);
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+
+  .card-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+    pointer-events: none; /* so icon doesn't block click */
+  }
+
+  .card p {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    pointer-events: none; /* so text doesn't block click */
+  }
+
+  /* Card colors */
+  .card.add    { background: linear-gradient(135deg, #28a745, #2ecc71); }
+  .card.delete { background: linear-gradient(135deg, #dc3545, #e74c3c); }
+  .card.update { background: linear-gradient(135deg, #17a2b8, #1abc9c); }
+  .card.search { background: linear-gradient(135deg, #ffc107, #ffca28); color: #333; }
+  .card.view   { background: linear-gradient(135deg, #6f42c1, #8e44ad); }
+
+  /* Responsive */
+  @media(max-width: 1100px) { .card { flex: 1 1 calc(30% - 20px); } }
+  @media(max-width: 768px) {
+    .dashboard { flex-direction: column; }
+    .sidebar { width: 100%; flex-direction: row; overflow-x: auto; padding: 15px; }
+    .sidebar ul { display: flex; flex-direction: row; }
+    .sidebar ul li { margin-right: 10px; margin-bottom: 0; white-space: nowrap; }
+    .main-content { padding: 20px; }
+    .card { flex: 1 1 calc(45% - 20px); margin-bottom: 20px; }
+  }
+  @media(max-width: 480px) { .card { flex: 1 1 100%; } }
+
+</style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Admin</h2>
+      <ul>
+        <li class="active">Home</li>
+        <li>Update Profile</li>
+        <li>Course</li>
+        <li>Subject</li>
+        <li>Session</li>
+        <li>Add Staff</li>
+        <li>Manage Staff</li>
+        <li>Add Student</li>
+        <li>Manage Student</li>
+        <li>Notify Staff</li>
+        <li>Notify Student</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="main-heading">
+        <h1>Student Management System</h1>
+      </div>
+
+      <div class="cards">
+        <!-- Add Student -->
+        <a href="add_student.html" class="card add">
+          <div class="card-icon"><i class="fas fa-user-plus"></i></div>
+          <p>Add Student</p>
+        </a>
+
+        <!-- Delete Student -->
+        <a href="delete_student.html" class="card delete">
+          <div class="card-icon"><i class="fas fa-user-minus"></i></div>
+          <p>Delete Student</p>
+        </a>
+
+        <!-- Update Student -->
+        <a href="update_student.html" class="card update">
+          <div class="card-icon"><i class="fas fa-user-edit"></i></div>
+          <p>Update Student</p>
+        </a>
+
+        <!-- Search Student -->
+        <a href="search_student.html" class="card search">
+          <div class="card-icon"><i class="fas fa-search"></i></div>
+          <p>Search Student</p>
+        </a>
+
+        <!-- View All Students -->
+        <a href="view_all_students_controller.jsp" class="card view">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <p>View All Students</p>
+        </a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
